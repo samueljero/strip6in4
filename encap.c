@@ -40,7 +40,9 @@ int do_encap(int link, const struct const_packet *old)
 		case DLT_RAW:
 				/*Raw. Just IP*/
 				if(!ipv4_encap(old)){
+					if(!ipv6_encap(old)){
 						return 0;
+					}
 				}
 				break;
 		case DLT_LINUX_SLL:
