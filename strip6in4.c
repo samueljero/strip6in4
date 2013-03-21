@@ -44,6 +44,7 @@ int main(int argc, char *argv[])
 	char *erbuffer=ebuf;
 	char *sfile=NULL;
 	char *dfile=NULL;
+	pcap_t* tmp;
 
 	/*parse commandline options*/
 	if(argc > 9){
@@ -88,14 +89,15 @@ int main(int argc, char *argv[])
 	}
 
 	/*attempt to open input file*/
-	in=pcap_open_offline(dfile, erbuffer);
+	in=pcap_open_offline(sfile, erbuffer);
 	if(in==NULL){
 		dbgprintf(0,"Error opening input file\n");
 		exit(1);
 	}
 
 	/*attempt to open output file*/
-	out=pcap_dump_open(in,dfile);
+	tmp=pcap_open_dead(DLT_RAW,65535);
+	out=pcap_dump_open(tmp,dfile);
 	if(out==NULL){
 		dbgprintf(0,"Error opening output file\n");
 		exit(1);
@@ -107,6 +109,7 @@ int main(int argc, char *argv[])
 	
 	/*close files*/
 	pcap_close(in);
+	pcap_close(tmp);
 	pcap_dump_close(out);
 return 0;
 }
