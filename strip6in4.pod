@@ -1,0 +1,38 @@
+=head1 NAME
+
+strip6in4 - de-encapsulate 6in4 or 4in6 traffic in a libpcap capture to a separate capture
+
+=head1 SYNOPSIS
+
+B<strip6in4> [-v] [-h] [-V] I<input_file> I<output_file>
+
+=head1 DESCRIPTION
+
+B<strip6in4> takes a libpcap capture, locates 6in4 or 4in6 traffic and
+de-encapsulates that traffic into a raw IP (libpcap compatible) capture.
+
+=head1 OPTIONS
+
+=over 5
+
+=item B<-v>
+	
+Verbose, repeat for additional verbosity
+
+=item B<-V>
+	
+Version information
+
+=item B<-h>
+	
+Help message
+
+=back
+
+=head1 AUTHOR
+
+Samuel Jero <sj323707@ohio.edu>
+
+=head1 SEE ALSO
+
+B<tcpdump>(8)

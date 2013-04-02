@@ -1,0 +1,29 @@
+This program takes a libpcap capture, locates 6in4 or 4in6 traffic and
+de-encapsulates that traffic into a raw IP (libpcap compatible) capture.
+
+Usage:
+Usage: strip6in4 [-v] [-h] [-V] input_file output_file
+          -v   verbose. May be repeated for additional verbosity.
+          -V   Version information
+          -h   Help
+
+strip6in4 is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+strip6in4 is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with strip6in4.  If not, see <http://www.gnu.org/licenses/>.
+
+
+Copyright 2013
+Samuel Jero
+Masters Student
+Internetworking Research Group
+Ohio University
+sj323707@ohio.edu

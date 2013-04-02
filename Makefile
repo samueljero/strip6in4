@@ -20,8 +20,7 @@ BINDIR = /usr/local/bin
 MANDIR = /usr/local/man
 
 
-all: strip6in4 
-#strip6in4.1
+all: strip6in4 strip6in4.1
 
 strip6in4: strip6in4.o encap.o
 	gcc ${CFLAGS} --std=gnu99 strip6in4.o encap.o -ostrip6in4 ${LDLIBS}
@@ -32,12 +31,12 @@ strip6in4.o: strip6in4.h strip6in4.c
 encap.o: encap.c strip6in4.h encap.h
 	gcc ${CFLAGS} ${LDLIBS} --std=gnu99 -c encap.c -oencap.o
 
-#strip6in4.1: strip6in4.pod
-#	pod2man -s 1 -c "strip6in4" strip6in4.pod > strip6in4.1
+strip6in4.1: strip6in4.pod
+	pod2man -s 1 -c "strip6in4" strip6in4.pod > strip6in4.1
 
 install: strip6in4
 	install -m 755 -o bin -g bin strip6in4 ${BINDIR}/strip6in4
-#	install -m 444 -o bin -g bin strin6in4 ${MANDIR}/man1/strip6in4.1
+	install -m 444 -o bin -g bin strip6in4.1 ${MANDIR}/man1/strip6in4.1
 
 uninstall:
 	rm -f ${BINDIR}/strip6in4
